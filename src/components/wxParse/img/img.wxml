@@ -1,0 +1,10 @@
+<view bindtap="handleTapImg">
+  <image src="{{ load }}" mode="{{ mode }}" wx:if="{{ status === 0 && lazyLoad }}" lazy-load></image>
+  <image src="{{ load }}" mode="{{ mode }}" wx:if="{{ status === 0 && (!lazyLoad) }}"></image>
+
+  <image src="{{ src }}" mode="{{ mode }}" wx:if="{{ (status === 0 || status === 1) && lazyLoad }}" lazy-load bindload="handleImgLoaded" binderror="handleLoadImgError" style="display: {{ status === 1 ? 'block' : 'none' }};{{ styleStr }}"></image>
+  <image src="{{ src }}" mode="{{ mode }}" wx:if="{{ (status === 0 || status === 1) && (!lazyLoad) }}" bindload="handleImgLoaded" binderror="handleLoadImgError" style="display: {{ status === 1 ? 'block' : 'none' }};{{ styleStr }};"></image>
+
+  <image src="{{ default }}" mode="{{ mode }}" wx:if="{{ status === 2 && lazyLoad }}" lazy-load></image>
+  <image src="{{ default }}" mode="{{ mode }}" wx:if="{{ status === 2 && (!lazyLoad) }}"></image>
+</view>

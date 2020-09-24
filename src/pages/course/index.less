@@ -1,0 +1,46 @@
+.course {
+  .nav {
+    margin-top: 40rpx;
+  }
+  .list_wrap {
+    margin: 40rpx 20rpx;
+    .item_wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10rpx;
+      margin-bottom: 30rpx;
+      border-radius: 10rpx;
+      border: 1px solid #ccc;
+      box-shadow: 5rpx 5rpx 10rpx 3rpx #eee;
+      image {
+        width: 200rpx;
+        height: 200rpx;
+        border-radius: 10rpx;
+      }
+      .info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20rpx;
+        text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+        }
+        // font-size: 28rpx;
+        .title {
+          margin-bottom: 10rpx;
+          font-size: 34rpx;
+          -webkit-line-clamp: 1;
+        }
+        .content {
+          font-size: 28rpx;
+          color: #3e3e3e;
+          -webkit-line-clamp: 4;
+        }
+      }
+    }
+  }
+}
