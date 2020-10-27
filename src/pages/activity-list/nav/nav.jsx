@@ -31,12 +31,6 @@ export default class Nav extends Component {
           </View>
           <Text>树上行走</Text>
         </Navigator>
-        <Navigator className='nav_item' url={'/pages/activity-list/index?id=17'} openType='redirect'>
-          <View className='img'>
-            <Image src='https://focus.fmg.net.cn/media/logo/TCH图标.png' mode='widthFix' />
-          </View>
-          <Text>TCH</Text>
-        </Navigator>
       </View>
     )
   }

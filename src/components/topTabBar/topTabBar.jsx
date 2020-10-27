@@ -16,17 +16,20 @@ export default class TabBar extends Component {
     })
   }
 
+  toIndex = () => {
+    Taro.reLaunch({
+      url: '/pages/index/index'
+    })
+  }
+
   render() {
     return (
       <View className='tabBar'>
-        <View className='logo'>LOGO</View>
+        <View className='logo' onClick={this.toIndex}>FOCUS</View>
         <View className='search_bar'>
           <Image src={search_img} className='search_img' />
           <Input placeholder='输入课程/活动/场地' confirm-type='search' onConfirm={this.handleSearchOk} />
           <Image src={scan_img} className='scan_img' />
-        </View>
-        <View className='msg'>
-          <Image src={msg_img} />
         </View>
       </View>
     )

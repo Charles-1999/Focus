@@ -26,7 +26,7 @@ export default class ActivityList extends Component {
 
   // 默认获取全部活动列表
   async getActivityList(){
-    let data = await request({url:'/goods'})
+    let data = await request({url:'/activitiesListViewSet'})
     console.log(data)
     data.results.map((item,index) => {
       item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
