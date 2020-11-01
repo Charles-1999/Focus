@@ -29,7 +29,9 @@ export default class ActivityList extends Component {
     let data = await request({url:'/activitiesListViewSet'})
     console.log(data)
     data.results.map((item,index) => {
-      item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      if(item.goods_front_image) {
+        item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      }
     })
     this.setState({
       activityList: data.results
@@ -40,7 +42,9 @@ export default class ActivityList extends Component {
   async getActivityListById(id){
     const data = await request({url:'/goodsListViewSetByCategory?category_id='+id})
     data.results.map((item,index) => {
-      item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      if(item.goods_front_image) {
+        item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      }
     })
     this.setState({
       activityList: data.results
@@ -51,7 +55,9 @@ export default class ActivityList extends Component {
   async getActivityListByName(name) {
     const data = await request({url:'/goodsListViewSetSearchByTitle/?name='+name})
     data.results.map((item,index) => {
-      item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      if(item.goods_front_image) {
+        item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn')
+      }
     })
     this.setState({
       activityList: data.results

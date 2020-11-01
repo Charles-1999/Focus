@@ -69,7 +69,6 @@ export default class Index extends Component {
               <Navigator className='activity' url={'/pages/detail/index?id='+item.id} key={item.id}>
                 <Image src={item.goods_front_image}></Image>
                 <Text className='title'>{item.name}</Text>
-                <Text className='content'>{item.goods_brief}</Text>
               </Navigator>
             ))}
           </View>
