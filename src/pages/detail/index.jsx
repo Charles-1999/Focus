@@ -28,6 +28,9 @@ export default class Detail extends Component {
     //                                   .replace(/<img/g,'<img style="max-width:100%;height:auto;display:block" ')
                     
     // console.log(data.goods_desc)
+    Taro.setNavigationBarTitle({
+      title: data.category.name
+    })
     this.setState({
       detail: data
     })

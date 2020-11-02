@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 import React, { Component } from 'react'
 import { View, Text, Image } from '@tarojs/components'
 import { request } from '@utils/request'
@@ -33,6 +34,12 @@ export default class Course extends Component {
     })
   }
 
+  toDetail(id) {
+    Taro.navigateTo({
+      url: '/pages/detail/index?id=' + id
+    })
+  }
+
   render() {
     const {courseList} = this.state
     console.log(courseList)
@@ -43,7 +50,7 @@ export default class Course extends Component {
         <Nav />
         <View className='list_wrap'>
           {courseList.map(course => (
-            <View className='item_wrap' key={course.id}>
+            <View className='item_wrap' key={course.id} onClick={this.toDetail.bind(this, course.id)}>
               <Image src={course.goods_front_image} />
               <View className='info'>
                 <Text className='title'>{course.name}</Text>
