@@ -38,7 +38,7 @@ export default class Detail extends Component {
     return (
       <View className='detail'>
         <TabBar />
-        <BreadCrumbs />
+        <BreadCrumbs category={item.category}/>
         <View className='main'>
           <Text className='title'>{item.name}</Text>
           <wxParse data={item.goods_desc}></wxParse>
