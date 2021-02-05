@@ -37,11 +37,11 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.0.3",
+    "@tarojs/react": "3.0.3",
     "@tarojs/runtime": "3.0.3",
     "@tarojs/taro": "3.0.3",
-    "@tarojs/react": "3.0.3",
-    "react-dom": "^16.10.0",
-    "react": "^16.10.0"
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
