@@ -1,9 +1,67 @@
 .index {
+  background-color: var(--themeBgGray);
+  padding-bottom: 40rpx;
   .nav {
     margin-top: 40rpx;
   }
   .nav_3 {
     margin-top: 40rpx;
+  }
+  .wrapper {
+    margin: 40rpx 30rpx;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    .wrapper_title {
+      margin-bottom: 20rpx;
+      font-size: 30rpx;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .img_wrapper {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      image {
+        width: auto;
+        height: 250rpx;
+        margin: 0 20rpx;
+      }
+    }
+  }
+  .intro {
+    padding: 20rpx 30rpx;
+    font-size: 26rpx;
+    color: var(--textColor);
+    .title {
+      text-align: center;
+      font-size: 32rpx;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20rpx;
+    }
+    .more {
+      text-align: right;
+    }
+  }
+  .table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    .item {
+      width: 50%;
+      padding: 10rpx;
+      text-align: center;
+    }
+    .item:nth-child(odd) {
+      border-right: 1rpx solid #ddd;
+    }
+    .item:nth-child(-n + 2) {
+      border-bottom: 1rpx solid #ddd;
+    }
   }
   .container {
     margin: 40rpx 30rpx;

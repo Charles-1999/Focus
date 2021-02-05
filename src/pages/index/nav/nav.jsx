@@ -36,7 +36,7 @@ export default class Nav extends Component {
         </Navigator>
         <Navigator className='nav_item' url={'/pages/detail/index?id='+consulting.id}>
           <Image src='https://focus.fmg.net.cn/media/logo/会议催化.png' />
-          <Text>会议催化</Text>
+          <Text>特色项目</Text>
         </Navigator>
         <Navigator className='nav_item' url={'/pages/course/course-list/index'}>
           <Image src='https://focus.fmg.net.cn/media/logo/专业培训.png' />

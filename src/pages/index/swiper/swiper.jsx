@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { View, Text, Image, Swiper, SwiperItem, Navigator } from '@tarojs/components'
 import { request } from '@utils/request'
 
-import './slider.less'
+import './swiper.less'
 
-export default class Slider extends Component {
+export default class BannerSwiper extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -34,12 +34,12 @@ export default class Slider extends Component {
   render() {
     const {bannerList} = this.state;
     return (
-      <View className='slider'>
+      <View className='swiper'>
         <Swiper
           indicatorDots
           indicatorColor='#fff'
           indicatorActiveColor='#eee'
-          circular 
+          circular
           autoplay
         >
           {bannerList.map((item) => (
