@@ -1,3 +1,4 @@
 export default {
-  navigationBarTitleText: '活动列表'
+  navigationBarTitleText: '活动内容',
+  navigationBarBackgroundColor: '#f2b658'
 }
