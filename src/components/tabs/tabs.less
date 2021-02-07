@@ -1,0 +1,32 @@
+.tabs {
+  .tab-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .tab-bar_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      height: 100rpx;
+      white-space: pre-wrap;
+      text-align: center;
+      font-size: 26rpx;
+      background-color: #e6e7e8;
+      border-top-left-radius: 15rpx;
+      border-top-right-radius: 15rpx;
+    }
+
+    .tab-bar_item.active {
+      background-color: var(--themeBgGray);
+      color: var(--themeOrange);
+    }
+  }
+
+  .tab-content {
+    padding: 20rpx;
+    background-color: var(--themeBgGray);
+    border-radius: 0 0 15rpx 15rpx;
+  }
+}

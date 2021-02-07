@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20rpx;
+  margin-bottom: 26rpx;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 3rpx 5rpx 1rpx #aaa;
+  background-color: #fff;
+
+  image {
+    width: 300rpx;
+  }
+
+  .info {
+    flex: 1;
+    margin-left: 20rpx;
+    color: var(--themeOrange);
+
+    .title {
+      margin-bottom: 16rpx;
+      font-size: 32rpx;
+      font-weight: 700;
+    }
+
+    .content {
+      font-size: 26rpx;
+      line-height: 40rpx;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+  }
+}
