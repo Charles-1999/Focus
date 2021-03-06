@@ -28,7 +28,13 @@
         margin: 0 20rpx;
       }
     }
+    .more {
+      text-align: right;
+      font-size: 26rpx;
+      color: var(--textColor);
+    }
   }
+  // 公司介绍
   .intro {
     padding: 20rpx 30rpx;
     font-size: 26rpx;
@@ -42,10 +48,26 @@
       flex-direction: column;
       margin-top: 20rpx;
     }
-    .more {
-      text-align: right;
+  }
+  // 会议增效模块content
+  .meeting {
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .item_wrap {
+        width: 48%;
+        margin-bottom: 10PX;
+        text-align: center;
+        font-size: 26rpx;
+        image {
+          width: 100%;
+        }
+      }
     }
   }
+  // 更多模块
   .table {
     display: flex;
     align-items: center;
@@ -61,64 +83,6 @@
     }
     .item:nth-child(-n + 2) {
       border-bottom: 1rpx solid #ddd;
-    }
-  }
-  .container {
-    margin: 40rpx 30rpx;
-    .container_title {
-      margin-left: 20rpx;
-      font-size: 34rpx;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-    }
-    .activity_list {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      .activity {
-        display: flex;
-        flex-direction: column;
-        width: 330rpx;
-        margin: 10rpx 0rpx;
-        border-radius: 10rpx;
-        border: 1rpx solid #ccc;
-        box-shadow: 5rpx 5rpx 10rpx 3rpx #eee;
-        overflow: hidden;
-        image {
-          width: 330rpx;
-          height: 185.625rpx;
-        }
-        text {
-          margin: 0rpx 10rpx 20rpx;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-        }
-        .title {
-          margin: 20rpx 10rpx;
-          font-size: 16PX;
-          font-weight: 500;
-          -webkit-line-clamp: 1;
-        }
-      }
-    }
-    .site_wrap {
-      display: flex;
-      flex-flow: wrap row;
-      justify-content: space-between;
-      image {
-        margin: 10rpx 0;
-        border-radius: 10rpx;
-      }
-      .site_big {
-        width: 340rpx;
-        height: 191rpx;
-      }
-      .site_small {
-        width: 220rpx;
-        height: 123rpx;
-      }
     }
   }
 }

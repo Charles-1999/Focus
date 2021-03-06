@@ -3,39 +3,36 @@ import { View, Text, Image, Navigator } from '@tarojs/components'
 import { request } from '@utils/request'
 
 import TabBar from '@components/topTabBar/topTabBar'
-import BannerSwiper from './swiper/swiper'
+import BannerSwiper from '@components/swiper/swiper'
 import Nav from './nav/nav'
 import './index.less'
+import API from '@utils/api'
 
 export default class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newGoodsList: [],
-      goodsPlace: []
+      goodsPlace: [],
+      meetingList: [],
+      finishRequest: false,
     }
   }
 
-  componentWillMount() {
-    this.getNewGoodsList();
+  componentDidMount() {
     this.getGoodsPlace();
+    this.getMeetingList();
+    console.log('componentDidMount')
   }
 
-  // 获取最新活动列表
-  async getNewGoodsList() {
-    const data = await request({
-      url: '/newGoodsListView'
-    })
-    let newGoodsList = data.results;
-    newGoodsList.forEach((item) => {
-      if (item.goods_front_image) {
-        item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn');
-      }
-    })
-    this.setState({
-      newGoodsList
-    })
-    console.log('newGoodsList', newGoodsList)
+  /**
+   * 是否需要重新渲染组件
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    const { goodsPlace, meetingList } = nextState;
+    if (goodsPlace.length == 0 || meetingList.length == 0)
+      return false;
+    else
+      return true;
   }
 
   // 获取活动场地列表
@@ -53,8 +50,64 @@ export default class Index extends Component {
     console.log('goodsPlace', goodsPlace)
   }
 
+  /* 获取会议增效模块列表 */
+  async getMeetingList() {
+    const data = await request({ url: API.MEETING });
+    const meetingList = data.results;
+    meetingList.forEach((item) => {
+      item.goods_front_image = item.goods_front_image.replace(/http:\/\/127.0.0.1/, 'https://focus.fmg.net.cn');
+    })
+    this.setState({
+      meetingList
+    })
+    console.log('meetingList', meetingList)
+  }
+
+  /* 会议增效模块 */
+  renderMeeting() {
+    const { meetingList } = this.state;
+    return (
+      <View className='wrapper meeting'>
+        <View className='wrapper_title'>会议增效模块</View>
+        <View className='content'>
+          {meetingList.map((item, index) => (
+            index <= 6 &&
+            <View className='item_wrap' key={item.id}>
+              <Image src={item.goods_front_image} />
+              <Text>{item.name}</Text>
+            </View>
+          ))}
+          {meetingList.map((item, index) => (
+            index <= 6 &&
+            <View className='item_wrap' key={item.id}>
+              <Image src={item.goods_front_image} />
+              <Text>{item.name}</Text>
+            </View>
+          ))}
+        </View>
+        <View className='more'>查看更多</View>
+      </View>
+    )
+  }
+
+  /* 更多模块 */
+  renderMore() {
+    return (
+      <View className='wrapper'>
+        <View className='wrapper_title'>更多模块</View>
+        <View className='table'>
+          <View className='item'>团队学习模块</View>
+          <View className='item'>CSR社会责任主题模块</View>
+          <View className='item'>催化发展模块</View>
+          <View className='item'>特色项目</View>
+        </View>
+      </View>
+    )
+  }
+
   render() {
-    const { newGoodsList, goodsPlace } = this.state;
+    console.log('rendering......')
+    const { goodsPlace } = this.state;
     return (
       <View className='index'>
         <TabBar></TabBar>
@@ -68,52 +121,18 @@ export default class Index extends Component {
           </View>
           <View className='more'>查看更多</View>
         </View>
-        <View className='wrapper'>
-          <View className='wrapper_title'>会议增效模块</View>
-        </View>
-        <View className='wrapper'>
-          <View className='wrapper_title'>更多模块</View>
-          <View className='table'>
-            <View className='item'>团队学习模块</View>
-            <View className='item'>CSR社会责任主题模块</View>
-            <View className='item'>催化发展模块</View>
-            <View className='item'>特色项目</View>
-          </View>
-        </View>
+        {this.renderMeeting()}
+        {this.renderMore()}
         <View className='wrapper'>
           <View className='wrapper_title'>活动场地</View>
           <View className='img_wrapper'>
             {goodsPlace.map((item) => (
               <Navigator url={'/pages/detail/index?id=' + item.id} key={item.id}>
-                <Image src={item.goods_front_image} mode='heightFix'/>
+                <Image src={item.goods_front_image} mode='heightFix' />
               </Navigator>
             ))}
           </View>
         </View>
-        {/* <View className='container'>
-          <Text className='container_title'>最新活动</Text>
-          <View className='activity_list'>
-            {newGoodsList.map((item,index)=>(
-              <Navigator className='activity' url={'/pages/detail/index?id='+item.id} key={item.id}>
-                <Image src={item.goods_front_image}></Image>
-                <Text className='title'>{item.name}</Text>
-              </Navigator>
-            ))}
-          </View>
-        </View>
-        <View className='container'>
-          <Text className='container_title'>活动场地</Text>
-          <View className='site_wrap'>
-            {goodsPlace.map((item,index)=>(
-              <Navigator url={'/pages/detail/index?id='+item.id} key={item.id}>
-                {index <= 1
-                  ? <Image src={item.goods_front_image} className='site_big' />
-                  : <Image src={item.goods_front_image} className='site_small' />
-                }
-              </Navigator>
-            ))}
-          </View>
-        </View> */}
       </View>
     )
   }
