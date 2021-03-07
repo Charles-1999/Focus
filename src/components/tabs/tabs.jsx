@@ -17,6 +17,7 @@ function Tabs(props) {
         {tabList.map((tab, i) =>
           <View
             className={i === current ? 'tab-bar_item active' : 'tab-bar_item'}
+            style = {{width: `${100 / tabList.length}%`}}
             onClick={() => changeTabHandler(i)}
             key={i}>
             {tab}
