@@ -61,6 +61,10 @@ export default class Moment extends Component {
         <Tabs tabList={tabList} current={currTab} onTabChange={this.tabChangeHandler.bind(this)}>
           {currTab === 0
             ? // 视频回顾
+            <View className=''>
+              {monentList.map(item => <Card item={item} key={item.id} />)}
+            </View>
+            : // 客户感言
             <View className='swiper_wrap'>
               <View className='side_nav'>
                 <View className={`side_nav-item ${current === 0 ? 'active' : ''}`}>2020</View>
@@ -78,10 +82,6 @@ export default class Moment extends Component {
                   <SwiperItem>333</SwiperItem>
                 </Swiper>
               </View>
-            </View>
-            : // 客户感言
-            <View className=''>
-              {monentList.map(item => <Card item={item} key={item.id} />)}
             </View>
           }
         </Tabs>
