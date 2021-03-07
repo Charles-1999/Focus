@@ -1,3 +1,4 @@
 export default {
-  navigationBarTitleText: '课程列表'
+  navigationBarTitleText: '特色课程',
+  navigationBarBackgroundColor: '#f2b658'
 }
