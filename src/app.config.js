@@ -10,6 +10,8 @@ export default {
     'pages/detail/index',
     'pages/moment/index',
     'pages/moment/comment-list/index',
+    'pages/training/index',
+    'pages/common-module/index'
   ],
   window: {
     backgroundTextStyle: 'light',
