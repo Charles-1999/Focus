@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { View, Text, Image, Navigator } from '@tarojs/components'
 import { request } from '@utils/request'
 
@@ -72,20 +73,13 @@ export default class Index extends Component {
         <View className='content'>
           {meetingList.map((item, index) => (
             index <= 6 &&
-            <View className='item_wrap' key={item.id}>
-              <Image src={item.goods_front_image} />
-              <Text>{item.name}</Text>
-            </View>
-          ))}
-          {meetingList.map((item, index) => (
-            index <= 6 &&
-            <View className='item_wrap' key={item.id}>
+            <View className='item_wrap' key={item.id} onClick={() => Taro.navigateTo({url: `/pages/detail/index?id=${item.id}`})}>
               <Image src={item.goods_front_image} />
               <Text>{item.name}</Text>
             </View>
           ))}
         </View>
-        <View className='more'>查看更多</View>
+        <View className='more' onClick={() => Taro.navigateTo({url: '/pages/common-module/index?module=meeting'})}>查看更多</View>
       </View>
     )
   }
@@ -96,10 +90,10 @@ export default class Index extends Component {
       <View className='wrapper'>
         <View className='wrapper_title'>更多模块</View>
         <View className='table'>
-          <View className='item'>团队学习模块</View>
-          <View className='item'>CSR社会责任主题模块</View>
-          <View className='item'>催化发展模块</View>
-          <View className='item'>特色项目</View>
+          <View className='item' onClick={() => Taro.navigateTo({url: '/pages/common-module/index?module=teamStudy'})}>团队学习模块</View>
+          <View className='item' onClick={() => Taro.navigateTo({url: '/pages/common-module/index?module=csr'})}>CSR社会责任主题模块</View>
+          <View className='item' onClick={() => Taro.navigateTo({url: '/pages/common-module/index?module=develop'})}>催化发展模块</View>
+          <View className='item' onClick={() => Taro.navigateTo({url: '/pages/common-module/index?module=specialCourse'})}>特色项目</View>
         </View>
       </View>
     )
